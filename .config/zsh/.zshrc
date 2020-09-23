@@ -1,10 +1,19 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # auto completions
 autoload -Uz compinit && compinit
 
+# aliases
 alias pip=pip3
 alias python=python3
-alias vim='/usr/local/bin/nvim'
+
+# functions
+function se() { du -a | awk '{print $2}' | fzf | xargs $EDITOR ;}
 
 # options
 setopt auto_cd
@@ -17,6 +26,7 @@ setopt inc_append_history
 setopt share_history
 setopt correct_all
 setopt interactive_comments
+bindkey -v
 
 # styles
 zstyle ':completion:*' menu select
@@ -38,18 +48,17 @@ export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
-
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/usr/local/opt/krb5/sbin:$PATH"
 export PATH="/usr/local/opt/krb5/bin:$PATH"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
 
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-
 source /usr/local/Cellar/fzf/0.22.0/shell/completion.zsh
 source /usr/local/Cellar/fzf/0.22.0/shell/key-bindings.zsh
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # antigen
 source /usr/local/share/antigen/antigen.zsh
@@ -60,12 +69,15 @@ antigen bundle z
 antigen bundle osx
 antigen bundle git
 antigen bundle colored-man-pages
+antigen bundle vi-mode
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
-antigen theme agnoster
+# antigen theme romkatv/powerlevel10k 
 
 antigen apply
 
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

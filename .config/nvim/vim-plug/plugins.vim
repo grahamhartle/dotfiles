@@ -23,5 +23,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/rainbow_parentheses.vim'
     " Startify
     Plug 'mhinz/vim-startify'
+    " NerdTree
+    Plug 'scrooloose/nerdTree'
+    " Git plugin for NerdTree
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'ryanoasis/vim-devicons'
+    " FZF & Vim-router
+    Plug 'junegunn/fzf', {'do': { -> fzfinstall() }}
+    Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-rooter'
 
     call plug#end()
