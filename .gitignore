@@ -7,6 +7,8 @@
 .AppleDouble
 .LSOverride
 .Trash
+.gitignore
+.gitconfig
 
 ### My files ###
 autoload/plugins/*
@@ -36,5 +38,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+.vscode
 
 # End of https://www.toptal.com/developers/gitignore/api/macos
