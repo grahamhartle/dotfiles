@@ -1,12 +1,20 @@
-# auto completions
-autoload -Uz compinit && compinit
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+  fi
+
+export PATH="/usr/local/bin/python3.9:$PATH"
+export PATH="/usr/local/opt/ncurses/bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+editor="/usr/local/share/nano"
 
 # aliases
-alias pip=pip3
-alias python=python3
-
-# functions
-function se() { du -a | awk '{print $2}' | fzf | xargs $EDITOR ;}
+alias pip=pip3.9
+alias python=python3.9
 
 # options
 setopt auto_cd
@@ -27,27 +35,12 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:::::' completer _expand _complete _ignored _approximate
 zstyle ':fuzzy-search-and-edit:editor' use-visual yes
 
-# virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Development
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
-
-. /usr/local/etc/profile.d/z.sh
-
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/ncurses/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-export PATH="/usr/local/opt/python@3.9/bin:$PATH"
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export PATH="/usr/local/opt/krb5/sbin:$PATH"
-export PATH="/usr/local/opt/krb5/bin:$PATH"
+test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # antigen
 source /usr/local/share/antigen/antigen.zsh
@@ -60,11 +53,9 @@ antigen bundle git
 antigen bundle colored-man-pages
 antigen bundle vi-mode
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
+antigen theme agnoster
 
 antigen apply
-
 

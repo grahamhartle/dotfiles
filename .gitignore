@@ -6,6 +6,7 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+.Trash
 
 ### My files ###
 autoload/plugins/*
@@ -27,6 +28,7 @@ Icon
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+.gnupg*
 
 # Directories potentially created on remote AFP share
 .AppleDB
