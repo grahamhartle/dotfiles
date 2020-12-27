@@ -1,0 +1,37 @@
+This is a revocation certificate for the OpenPGP key:
+
+pub   rsa4096 2019-12-19 [S] [expires: 2023-12-19]
+      97B5C060657737AE7567E86464BA8F2DA35E57FA
+uid          Graham Hartle <ghartle@icloud.com>
+
+A revocation certificate is a kind of "kill switch" to publicly
+declare that a key shall not anymore be used.  It is not possible
+to retract such a revocation certificate once it has been published.
+
+Use it to revoke this key in case of a compromise or loss of
+the secret key.  However, if the secret key is still accessible,
+it is better to generate a new revocation certificate and give
+a reason for the revocation.  For details see the description of
+of the gpg command "--generate-revocation" in the GnuPG manual.
+
+To avoid an accidental use of this file, a colon has been inserted
+before the 5 dashes below.  Remove this colon with a text editor
+before importing and publishing this revocation certificate.
+
+:-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: This is a revocation certificate
+
+iQI2BCABCAAgFiEEl7XAYGV3N651Z+hkZLqPLaNeV/oFAl36xmACHQAACgkQZLqP
+LaNeV/opEA//XzSpIXO7ankpEpscRc2Rjq561EOImc4wThTKBS85n7I2MOedsCXn
+XSH07GLHW+m5rFgjPYs2rDicaenaBUAwW6X20kn4xdQIYtQ8GItpfpPCmbhPbTN4
+dT9yJScyIj+l5zb69UhaDC2KdZ3uVLtjy5ouGkHg3XurjJ/Z51jK0lWCnvPlU+1c
++Fd4CmfVlB6W/W7TCaXwk0JJnoJulfXCeTyzEBWTrZR5nnGptF3iTEKRc7hnVXXE
+hIC46kxt9Lij2Q7I6lvbnCcTbeAcqLdZm7KVF+gA3VK+yDTwqPq6xGKh2WIfYtmX
+FPACck6/Ep4Q2ucJyn1QxI87a2qGwIYRE6rQwyG9ef+NsoAOerwbguZQtjQmEWt3
+oE9v6zqtWFIGChkx0exj7x4vPszPWRY92evulNz+yPyJDimrFZ8aqdYxu/QGP/yX
+G/dByuLaEuaLx4urEYBeOyQkHbMS7HZYvQ7lUQDhR9HKZ02oAGDvJ+y6e2caNiwE
+hBjRiWPp+8XMtFVf17zaLfRqOcRTQ3/l7OWZx9BASPRCGW5hhiSf8Y8Ecds8Bev6
+Z0lIQLCLkDQhklejzCfOGbY5vD7aLxakXxofBKH0RbSgFUJcZjMfMU7T/Obz6A6z
+UaTSJl07OVpo64YHlV0TCxCFgNeYFCksbVDcUQZ6UfFhF5Qg6kwBcYY=
+=1oWA
+-----END PGP PUBLIC KEY BLOCK-----
