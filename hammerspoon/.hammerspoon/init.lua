@@ -1,6 +1,5 @@
-local hyper = {"ctrl","alt","cmd"}
 
-hs.hotkey.bind({"hyper"}, "s", function ()
+hs.hotkey.bind({"ctrl","alt","cmd","shift"}, "s", function ()
   hs.application.launchOrFocus('Safari')
 end)
 
