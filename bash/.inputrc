@@ -1,0 +1,7 @@
+set completion-ignore-case on
+set editing-mode vi 
+set keymap vi
+set show-all-if-ambiguous on
+set history-size 1000
+
+
