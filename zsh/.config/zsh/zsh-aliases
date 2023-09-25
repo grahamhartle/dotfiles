@@ -26,6 +26,11 @@ alias t='tail -f'
 
 alias ytd='yt-dlp --format "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]"' 
 
+# Git aliases
+alias ga='git add .'
+alias gc='git commit -m "{$1}"'
+alias gp='git push'
+
 # Command line head / tail shortcuts
 alias -g H='| head'
 alias -g T='| tail'
