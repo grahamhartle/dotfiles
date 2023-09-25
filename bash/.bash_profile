@@ -9,10 +9,10 @@ alias pipl='python3 -m pip list'
 alias pipins='python3 -m pip install '
 
 # Powerline setup 
-export PATH=$PATH:$HOME/Library/Python/3.11/bin/
+export PATH=$PATH:/opt/homebrew/Cellar/python@3.11/3.11.5/bin/
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /Users/graham/Library/Python/3.11/lib/python/site-packages/powerline/bindings/bash/powerline.sh
+. /opt/homebrew/lib/python3.11/site-packages/powerline/bindings/bash/powerline.sh
 
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
