@@ -146,7 +146,7 @@
                     },
                     "to": [
                         {
-                            "apple_vendor_keyboard_key_code": "launchpad"
+                            "key_code": "f6"
                         }
                     ]
                 },

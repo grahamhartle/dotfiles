@@ -80,3 +80,4 @@ alias python3=$PYTHONPATH
 autoload edit-command-line; zle -N edit-command-line
 # bindkey '^e' edit-command-line
 # exec fish
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
