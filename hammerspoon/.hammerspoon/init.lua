@@ -3,6 +3,10 @@ hs.hotkey.bind({"ctrl","alt","cmd","shift"}, "s", function ()
   hs.application.launchOrFocus('Safari')
 end)
 
+hs.hotkey.bind({"ctrl","alt","cmd","shift"}, "o", function ()
+  hs.application.launchOrFocus('Obsidian')
+	
+end)
 function reloadConfig(files)
   doReload = false
   for _,file in pairs(files) do
