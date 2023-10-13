@@ -1,4 +1,56 @@
 la
+trash hammerspoon
+cd
+cd .config
+la
+mkdir hammerspoon
+cp -R .hammerspoon ~.config/hammerspoon
+cp -R .hammerspoon ~/.config/hammerspoon
+cp -R ~/.hammerspoon ~/.config/hammerspoon
+la hammerspoon
+cp -R ~/.hammerspoon/ ~/.config/hammerspoon
+la hammerspoon
+trash hammerspoon/.hammerspoon
+cd hammerspoon
+la
+hx init.lua
+cd
+echo $HOME
+echo $XDG_CONFIG_HOME
+cd hammerspoon
+hx init.lua
+cd .config/hammerspoon
+hx init.lua
+cd
+cd .config/hammerspoon
+hx init.lua
+hx init.lua
+cd
+clear
+la
+trash .hammerspoon
+la
+cd .config/hammerspoon
+la
+hx init.lua
+cd
+cp -R ~/.config/hammerspoon /.hammerspoon
+la
+cp -R ~/.config/hammerspoon ~/.hammerspoon
+la
+la .hammerspoon
+cd .hammerspoon
+hx init.lua
+cd
+cd .config
+la
+trash hammerspoon
+la
+cd
+la
+la
+exec bash
+la
 source .bash_profile
 la
 trash *.tmp
@@ -946,75 +998,3 @@ hx zshrc
 cd .config/zsh
 hx zshrc
 la
-cd .dotfiles
-la
-ls
-stow -S zsh
-cd
-ls .config
-la
-la .config
-cd .config/zsh
-la
-hx zshrc
-brew install bash bash-language-server
-brew install lua lua-language-server
-brew install luajit luarocks
-brew install python-lsp-server
-clear
-cd .config/zsh
-la
-hx zshrc
-man helix
-hx --health
-clear
-cd ..
-la
-cd helix
-la
-mkdir runtime
-hx --health
-la
-cd runtime
-touch runtime
-cd ..
-hx --health
-cd ..
-la
-cd zsh
-la
-hx zshrc
-q
-cd ..
-cd helix
-la
-hx config.toml
-hx ~/.config/zsh/zshrc
-python3
-which python3
-la /opt/homebrew/opt/
-la /opt/homebrew/opt/bash
-la /opt/homebrew/opt/bash/bin
-la /usr/local/bin
-sudo ln -s /opt/homebrew/opt/bash/bin/bash /usr/local/bin
-exit
-brew list
-which bash
-hx /etc/shells
-sudo hx /etc/shells
-which bash
-brew list
-brew search spark
-brew install readdle-spark
-brew list
-clear
-brew install --cask obsidian
-brew install --cask logseq
-clear
-la
-la .config
-clear
-brew list
-brew search pycharm
-brew install --cask pycharm-ce
-/usr/bin/python3
