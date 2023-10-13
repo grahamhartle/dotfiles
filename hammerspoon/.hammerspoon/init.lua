@@ -1,19 +1,20 @@
+leader = {"ctrl","alt","cmd","shift"}
 
-hs.hotkey.bind({"ctrl","alt","cmd","shift"}, "s", function ()
+hs.hotkey.bind(leader, "s", function ()
   hs.application.launchOrFocus('Safari')
 end)
 
-hs.hotkey.bind({"ctrl","alt","cmd","shift"}, "o", function ()
+hs.hotkey.bind(leader, "o", function ()
   hs.application.launchOrFocus('Obsidian')
 	
 end)
 
-hs.hotkey.bind({"ctrl","alt","cmd","shift"}, "l", function ()
+hs.hotkey.bind(leader, "l", function ()
   hs.application.launchOrFocus('Logseq')
 	
 end)
 
-hs.hotkey.bind({"ctrl","alt","cmd","shift"}, "m", function ()
+hs.hotkey.bind(leader, "m", function ()
   hs.application.launchOrFocus('Spark Desktop')
 
 end)
