@@ -1,20 +1,20 @@
-leader = {"ctrl","alt","cmd","shift"}
+local hyper = {"ctrl","alt","cmd","shift"}
 
-hs.hotkey.bind(leader, "s", function ()
+hs.hotkey.bind(hyper, "s", function ()
   hs.application.launchOrFocus('Safari')
 end)
 
-hs.hotkey.bind(leader, "o", function ()
+hs.hotkey.bind(hyper, "o", function ()
   hs.application.launchOrFocus('Obsidian')
 	
 end)
 
-hs.hotkey.bind(leader, "l", function ()
+hs.hotkey.bind(hyper, "l", function ()
   hs.application.launchOrFocus('Logseq')
 	
 end)
 
-hs.hotkey.bind(leader, "m", function ()
+hs.hotkey.bind(hyper, "m", function ()
   hs.application.launchOrFocus('Spark Desktop')
 
 end)
