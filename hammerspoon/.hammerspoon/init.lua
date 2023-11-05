@@ -4,6 +4,10 @@ hs.hotkey.bind(hyper, "s", function ()
   hs.application.launchOrFocus('Safari')
 end)
 
+hs.hotkey.bind(hyper, "t", function ()
+  hs.application.launchOrFocus('WezTerm')
+end)
+
 hs.hotkey.bind(hyper, "o", function ()
   hs.application.launchOrFocus('Obsidian')
 	
