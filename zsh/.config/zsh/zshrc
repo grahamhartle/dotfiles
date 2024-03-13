@@ -1,6 +1,7 @@
 #/bin/sh
 # $ZSH_THEME="agnoster"
 #source $ZDOTDIR/themes/agnoster.zsh-theme
+source "$HOME/.config/zsh/spaceship/spaceship.zsh"
 
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
