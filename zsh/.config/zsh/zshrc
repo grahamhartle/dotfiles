@@ -1,4 +1,6 @@
 #/bin/sh
+# $ZSH_THEME="agnoster"
+source $ZDOTDIR/themes/agnoster.zsh-theme
 
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
@@ -13,10 +15,10 @@ unsetopt BEEP
 # completions
 autoload -Uz compinit
 zstyle ':completion:*' menu select
-# zstyle ':completion::complete:lsof:*' menu yes select
+zstyle ':completion::complete:lsof:*' menu yes select
 zmodload zsh/complist
 # compinit
-_comp_options+=(globdots)		# Include hidden files.
+zsh_comp_options+=(globdots)		# Include hidden files.
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
@@ -28,31 +30,28 @@ autoload -Uz colors && colors
 
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
-# source "$ZDOTDIR/themes/agnoster.zsh-theme"
 # Normal files to source
-# zsh_add_file "zsh-exports"
-zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-prompt"
-zsh_add_file "zsh-colored-man-pages"
 
 # Plugins
+# For more pluins: https://github.com/unixorn/awesome-zsh-plugins
+# More completions https://github.com/zsh-users/zsh-completions
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zsh-users/zsh-completions"
 zsh_add_plugin "jeffreytse/zsh-vi-mode"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
-# zsh_add_completion "esc/conda-zsh-completion" false
-# For more pluins: https://github.com/unixorn/awesome-zsh-plugins
-# More completions https://github.com/zsh-users/zsh-completions
+zsh_add_plugin "ael-code/zsh-colored-man-pages"
 source "$ZSHPLUGINS/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 source "$ZSHPLUGINS/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh"
+source "$ZSHPLUGINS/zsh-colored-man-pages/colored-man-pages.plugin.zsh"
 
 # Key-bindings
 bindkey -s '^o' 'ranger^M'
 # bindkey -s '^f' 'zi^M'
 # bindkey -s '^s' 'ncdu^M'
-# bindkey -s '^n' 'nvim $(fzf)^M'
+bindkey -s '^n' 'nvim $(fzf)^M'
 bindkey -s '^v' 'nvim^M'
 bindkey -s '^z' 'zi^M'
 bindkey '^[[P' delete-char
@@ -63,22 +62,18 @@ bindkey "^j" down-line-or-beginning-search # Down
 bindkey -r "^u"
 bindkey -r "^d"
 
-# FZF 
+# FZF
 # TODO update for mac
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
-# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
 compinit
 
 # Aliases
 alias python3=$PYTHONPATH
-# alias lvim=~/.local/bin/lvim
-# Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
-# bindkey '^e' edit-command-line
-# exec fish
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(zoxide init --cmd cd zsh)"

@@ -96,7 +96,7 @@ if is-at-least 4.2.0; then
 fi
 
 # Pip Aliases
-  alias pip3="/opt/homebrew/opt/python3/bin/pip3"
+  alias pip="/opt/homebrew/opt/python3/bin/pip3"
   alias pipl="python3 -m pip list"
   alias pipins="python3 -m pip install "
 
