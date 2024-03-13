@@ -98,10 +98,10 @@ prompt_git() {
   ref="$vcs_info_msg_0_"
   if [[ -n "$ref" ]]; then
     if is_dirty; then
-      color=yellow
+      color=blue
       ref="${ref} $PLUSMINUS"
     else
-      color=green
+      color=darkgreen
       ref="${ref} "
     fi
     if [[ "${ref/.../}" == "$ref" ]]; then
