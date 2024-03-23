@@ -1,3 +1,311 @@
+cd ..
+la
+cd bin
+la
+cd ..
+cat .crates2.json
+cat .crates.toml
+cd ..
+cd ..
+la
+cd ..
+la
+la lib
+la share
+la
+la var
+la include
+cd
+starship print-config
+cd .config
+hx starship.toml
+cd .config
+hx starship.toml
+starship print-config
+hx starship.toml
+clear
+starship -h
+starship init
+starship init zsh
+starship -h
+starship explain
+z rust
+la
+cd guessing_game
+starship explain
+cd
+clear
+brew install sk
+brew update
+brew upgrade
+sk
+sk --ansi -i -c 'ag --color "{}"' --preview "preview.sh {}"
+sk --ansi -i -c 'ag --color "{}"' --preview "cat {}"
+sk --ansi -i -c 'ag --color "{}"' --preview "bat {}"
+sk --ansi -i -c 'ag --color "{}"' --preview "zsh {}"
+sk --ansi -i -c 'ag --color "{}"' --preview "zshrc {}"
+$ SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."\
+$ sk
+SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."\
+ sk
+brew uninstall sk
+clear
+builtin cd -- Development/Rust
+la
+cd
+Development/Rust 
+cd
+cd .config
+fzf -m
+fzf -m
+clear
+cd zsh
+fzf -m
+zshrc
+fzf -m
+la
+ga .
+gc "updating files"
+gc "updating files"
+gp
+cd ..
+la
+cd wezterm
+ga .
+gc "updating files"
+gp
+cd
+rsync -r ~/.config/ ~/gitea/dotfiles/
+cd gitea
+la
+cd dotfiles
+ga .
+gc "updating files"
+gp
+la
+cd zsh
+ga .
+cd ..
+cd wezterm
+ga .
+gc "updating files"
+la
+cd zsh
+cd ..
+cd zsh
+ga .
+gc "updating files"
+cd ..
+cd nvim
+ga .
+gc "updating files"
+gp
+cd
+cd gitea
+cd dotfiles
+la
+trash lvim
+trash jgit
+trash iterm2
+la
+ga .
+gc "updating files"
+gp
+fzf
+la
+la wezterm
+cd
+echo "hello\nbonjour\nbonsoir" | fzf
+echo "hello\nbonjour\nbonsoir" | fzf
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+fzf
+brew list
+cd
+rg
+nvim $(fzf)
+vim $(find . -type f | fzf)
+nvim $(find . -type f | fzf)
+echo $EDITOR
+cd $(find . -type d | fzf)
+la
+fzf --multi \\
+--height=50% \\
+--margin=5%,2%,2%,5% \\
+--layout=reverse-list \\
+--border=double \\
+--info=inline \\
+--prompt='$>' \\
+--pointer='âƒ¦ƒ²' \\
+--marker='âƒ¹ƒ' \\
+--header='CTRL-c or ESC to quit' \\
+--color='dark,fg:magenta'
+la
+fzf --multi \\
+--height=50% \\
+--margin=5%,2%,2%,5% \\
+--layout=reverse-list \\
+--border=double \\
+--info=inline \\
+--prompt='$>' \\
+--pointer='âƒ¦ƒ²' \\
+--marker='âƒ¹ƒ' \\
+--header='CTRL-c or ESC to quit' \\
+--color='dark,fg:magenta'
+fzf
+find . -type d | nl | fzf --preview='stat {}' \\
+--preview-label='[ Directory stats ]'
+find . -type d | nl -s ',' | fzf --delimiter=',' --preview='stat {2}' \\
+--preview-label='[ Directory stats ]'
+find . -type d | fzf \\
+--preview='echo "File(s) with index(es) {+n} and query {q} \n" && ls -l {-1}' \\
+--preview-label='[ Directory stats ]'
+find . -type d | fzf --preview='tree -C {} | head -n 50'
+FZF_EXPLORER_CMD="find . -type d" && \\
+eval $FZF_EXPLORER_CMD | fzf\
+--bind "ctrl-r:reload($FZF_EXPLORER_CMD)" \\
+--bind 'del:execute(rm -ri {})' \\
+--bind "del:+reload($FZF_EXPLORER_CMD)" \\
+--header='CTRL-R to refresh the list | CTRL-P to toggle the preview | DEL to delete the current directory'
+FZF_EXPLORER_CMD="find . -type d" && \\
+eval $FZF_EXPLORER_CMD | fzf\
+--bind "ctrl-r:reload($FZF_EXPLORER_CMD)" \\
+--bind 'del:execute(rm -ri {})' \\
+--bind "del:+reload($FZF_EXPLORER_CMD)" \\
+--header='CTRL-R to refresh the list | CTRL-P to toggle the preview | DEL to delete the current directory'
+FZF_DEFAULT_COMMAND="find . -type d" fzf \\
+--preview='tree -C {}' \\
+--bind='ctrl-r:reload(eval $FZF_DEFAULT_COMMAND)' \\
+--bind='del:execute(rm -ri {})' \\
+--bind='del:+reload(eval $FZF_DEFAULT_COMMAND)' \\
+--header='CTRL-R to refresh the list | CTRL-P to toggle the preview | DEL to delete the current directory'
+clear
+FZF_DEFAULT_COMMAND="find . -type d" fzf \\
+--bind='change:reload(eval $FZF_DEFAULT_COMMAND)' \\
+--bind='del:execute(rm -ri {})' \\
+--bind='del:+reload(eval $FZF_DEFAULT_COMMAND)' \\
+--header='CTRL-R to refresh the list | CTRL-P to toggle the preview | DEL to delete the current directory'
+find -type d | fzf --multi --height=80% --border=sharp \\
+--preview='tree -C {}' --preview-window='45%,border-sharp' \\
+--prompt='Dirs > ' \\
+--bind='enter:execute($EDITOR {+})' \\
+--bind='del:execute(rm -ri {+})' \\
+--bind='ctrl-p:toggle-preview' \\
+--bind='ctrl-d:change-prompt(Dirs > )' \\
+--bind='ctrl-d:+reload(find -type d)' \\
+--bind='ctrl-d:+change-preview(tree -C {})' \\
+--bind='ctrl-d:+refresh-preview' \\
+--bind='ctrl-f:change-prompt(Files > )' \\
+--bind='ctrl-f:+reload(find -type f)' \\
+--bind='ctrl-f:+change-preview(cat {})' \\
+--bind='ctrl-f:+refresh-preview' \\
+--bind='ctrl-a:select-all' \\
+--bind='ctrl-x:deselect-all' \\
+--header '\
+CTRL-D to display directories | CTRL-F to display files\
+CTRL-A to select all | CTRL-x to deselect all\
+ENTER to edit | DEL to delete\
+CTRL-P to toggle preview\
+'
+cd
+find -type d | fzf --multi --height=80% --border=sharp \\
+--preview='tree -C {}' --preview-window='45%,border-sharp' \\
+--prompt='Dirs > ' \\
+--bind='enter:execute($EDITOR {+})' \\
+--bind='del:execute(rm -ri {+})' \\
+--bind='ctrl-p:toggle-preview' \\
+--bind='ctrl-d:change-prompt(Dirs > )' \\
+--bind='ctrl-d:+reload(find -type d)' \\
+--bind='ctrl-d:+change-preview(tree -C {})' \\
+--bind='ctrl-d:+refresh-preview' \\
+--bind='ctrl-f:change-prompt(Files > )' \\
+--bind='ctrl-f:+reload(find -type f)' \\
+--bind='ctrl-f:+change-preview(cat {})' \\
+--bind='ctrl-f:+refresh-preview' \\
+--bind='ctrl-a:select-all' \\
+--bind='ctrl-x:deselect-all' \\
+--header '\
+CTRL-D to display directories | CTRL-F to display files\
+CTRL-A to select all | CTRL-x to deselect all\
+ENTER to edit | DEL to delete\
+CTRL-P to toggle preview\
+'
+hx explorer.sh
+chmod +x explorer.sh
+./explorer.sh
+./explorer.sh
+hx explorer.sh
+./explorer.sh
+cmd="${FZF_CTRL_T_COMMAND:-"command find -L . -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \\
+-o -type f -print \\
+-o -type d -print \\
+-o -type l -print 2> /dev/null | cut -b3-"}"
+Development/Python 
+cd
+cd .config
+la
+cd zsh
+la
+hx zshrc
+exit
+find -type d | fzf
+find . -type d | fzf
+find . -type d | fzf
+la
+find . -type d | fzf
+clear
+exit
+fzf
+.config/zsh/.zshrc 
+.config/zsh/zshrc 
+hx .config/zsh/zshrc 
+clear
+builtin cd -- Desktop
+cd la
+la
+cd
+builtin cd -- Documents
+la
+cd
+clear
+nvim $(find . -type f | fzf)
+man fzf
+cd .config/zsh/zshrc 
+hx .config/zsh/zshrc 
+hx .config/zsh/zshrc 
+hx .config/zsh/zshrc 
+bindkey -l
+bindkey
+hx .zshenv \
+
+hx .config/zsh/zshrc 
+source .config/zsh/.zshrc 
+python3
+cat .zprofile 
+brew list
+brew uninstall fzf
+brew install fzf
+builtin cd -- .config/zsh/themes
+la
+cd
+bindkey
+.config/zsh 
+la
+cd
+hx .config/zsh/zshrc 
+source .config/zsh/.zshrc 
+clear
+man fzf
+find . -type d | fzf -m --preview='tree -C {} | head -n 50'
+find . -type d | fzf -m --preview='tree -C {} | head -n 50'
+man fzf
+find -type d
+man find
+find
+find d
+find d Desktop
+find -d Desktop
+find -d | fzf -m --preview='tree -C {} | head -n 50'
+find . -d | fzf -m --preview='tree -C {} | head -n 50'
 find -d '~/' | fzf -m --preview='tree -C {} | head -n 50'
 find -d ~/ | fzf -m --preview='tree -C {} | head -n 50'
 find -d ~/ | \\
@@ -792,227 +1100,3 @@ clear
 exit
 exit
 clear
-cd .config/nvim
-python3 fizz_bang.py
-python3 -m fizz_bang.py
-python3 -m fizz_bang
-python3 fizz_bang
-cd Development/Python
-python3 fizz_bang
-python3 fizz_bang.py
-clear
-python3 height_conversion.py
-python3 weeksleft.py
-clear
-exit
-exit
-exit
-exit
-exit
-cd
-cd .config/nvim
-cd
-exit
-tmux ls
-tmux
-tmux ls
-tmux a
-cd .config
-la
-cd zellij
-la
-hx config.kdl
-cd
-clear
-zellij a quadratic-iguanadon
-clear
-tmux a
-tmux a
-clear
-tmux a
-tmux a
-tmux a
-tmux ls
-tmux
-tmux ls
-clear
-brew list
-brew bundle
-ls
-la
-hx Brewfile.lock.json
-hx Brewfile
-brew brewfile
-man brewfile
-man brew
-brew bundle dump
-trash Brewfile
-brew bundle dump
-hx Brewfile
-clear
-tmux a
-tmux detach
-hx ~/.config/tmux/tmux.conf
-cd Development
-hx ~/.config/tmux/tmux.conf
-clear
-cd
-tmux detach
-exit
-cd Development/Python
-la
-clear
-cd
-exit
-cd Development/Python
-hx fizz_bang.py
-hx height_conversion.py
-hx weeksleft.py
-clear
-exit
-exit
-bash
-cd la /usr/bin
-la /usr/bin
-cd .config
-la
-la tmux
-cd
-echo $ENV
-la /usr/local/bin
-la /bin
-clear
-tmux a
-tmux
-chsh -s /usr/local/bin/bash
-exit
-limit cputime
-limit maxproc
-limit filesize
-limit memorylocked
-limit memoryuse
-limit msgqueue
-limit pseudoterminals
-dir
-zmodload
-print info zsh 
-lpstat -a
-setopt
-autoload
-du
-man du
-du -h
-clear
-exit
-echo $ENV
-echo $SHELL
-clear
-la
-tmux a
-clear
-z Development/Python
-cd
-cd .config/zsh
-hx zshrc
-cd ..
-la
-starship preset nerd-font-symbols -o ~/.config/starship.toml
-cd
-la
-cd scripts
-la
-hx flag.sh
-chmod +x flag.sh
-./flag.sh
-./flag.sh -a
-./flag.sh -b
-./flag.sh -c
-hx flag.sh
-./flag.sh -a
-hx flag.sh
-./flag.sh -a
-./flag.sh -b
-./flag.sh -c
-df
-man df
-hx flag.sh
-quit
-exit
-limit -hs
-limit -hs addressspace
-limit -hs memoryuse
-limit memoryuse
-limit addressspace
-ulimit -a
-ulimit -m
-ulimit -l
-ulimit -u
-fc
-ulimit -u
-man zshbuiltins
-clear
-hx ~/.config/zsh/zshrc
-hx ~/.zshenv
-hx ~/.config/zsh/zshrc
-cd
-clear
-exit
-z scripts
-la
-hx bettercd.sh
-chmod +x bettercd.sh
-./bettercd.sh
-alias bcd="~/scripts/bettercd.sh"
-bcd 
-alias
-cd
-bcd
-cd scripts
-hx bettercd.sh
-cd
-cd 
-cd
-z .config/zsh
-la
-hx zshrc
-source zshrc
-cd
-cd scripts
-la
-mv /scripts/bettercd.sh .config/zsh/
-mv /scripts/bettercd.sh ~/.config/zsh/
-mv ~/scripts/bettercd.sh ~/.config/zsh/
-la
-cd
-cd .config/zsh
-la
-hx zsh-functions
-hx zshrc
-exit
-cd scripts
-alias
-cd
-cd 
-cd ~
-cd
-cd .config/zsh
-hx zsh-functions
-exit
-cd
-cd
-cd 
-cd
-cd
-la
-cd
-cd
-cd
-hx zsh-functions
-exit
-cd
-la
-ranger
-help cd
-man cd
-cd --help
-exit
