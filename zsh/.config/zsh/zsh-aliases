@@ -14,7 +14,7 @@ alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 
 alias cat="bat"
-
+alias nano="/opt/homebrew/bin/nano"
 alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 
 alias tree='tree -C'

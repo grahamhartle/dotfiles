@@ -1,4 +1,4 @@
-#/bin/sh
+#!/usr/bin/env zsh
 
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
@@ -26,6 +26,9 @@ zle -N down-line-or-beginning-search
 
 # Colors
 autoload -Uz colors && colors
+
+# Prompt
+autoload -U promptinit && promptinit
 
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
