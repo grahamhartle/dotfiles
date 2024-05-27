@@ -31,6 +31,15 @@ autoload -Uz colors && colors
 autoload -U promptinit && promptinit
 # prompt fire yellow yellow red black magenta
 
+function yy() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
 # Normal files to source
