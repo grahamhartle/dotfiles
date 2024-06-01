@@ -1,5 +1,12 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
+# : Flavor {{{
+
+[ Flavor ]
+use = 'catppuccin-mocha'
+
+# : }}}
+
 # : Manager {{{
 
 [manager]
