@@ -38,4 +38,5 @@ yabai -m rule --add app="^Hammerspoon$" manage=off
 yabai -m rule --add app="^Step Two$" manage=off
 yabai -m rule --add app="^Swish$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Alfred$" manage=off
 
