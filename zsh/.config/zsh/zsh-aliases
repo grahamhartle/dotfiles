@@ -13,6 +13,11 @@ alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 
+# Brew
+alias bud='brew update'
+alias bug='brew upgrade'
+alias bl='brew list'
+
 alias cat="bat"
 alias nano="/opt/homebrew/bin/nano"
 alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
