@@ -55,9 +55,9 @@ zsh_add_plugin "zsh-users/zsh-completions"
 zsh_add_plugin "jeffreytse/zsh-vi-mode"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
 zsh_add_plugin "ael-code/zsh-colored-man-pages"
-source "$ZSHPLUGINS/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-source "$ZSHPLUGINS/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh"
-source "$ZSHPLUGINS/zsh-colored-man-pages/colored-man-pages.plugin.zsh"
+#source "$ZSHPLUGINS/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+#source "$ZSHPLUGINS/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh"
+#source "$ZSHPLUGINS/zsh-colored-man-pages/colored-man-pages.plugin.zsh"
 
 # Key-bindings
 # bindkey -s '^o' 'ranger^M'
