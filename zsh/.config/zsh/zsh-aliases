@@ -6,17 +6,18 @@
 alias la='eza -Gxa --color=always --long --no-filesize --icons=always'   #long list,show almost all,show type,human readable
 
 # Brew
-alias bud='brew update'
-alias bug='brew upgrade'
-alias bl='brew list'
+alias brin='brew install '
+alias brud='brew update'
+alias brug='brew upgrade'
+alias bls='brew list'
 
 # Aliases
 alias cat="bat"
 alias nano="/opt/homebrew/bin/nano"
 alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 alias tree='eza --tree --level=3 --color --icons'
-alias ta='tmux attach'
-alias td='tmux detach'
+# alias ta='tmux attach'
+# alias td='tmux detach'
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 alias t='tail -f'
@@ -32,8 +33,9 @@ alias ga='git add .'
 alias gc='git commit -m' 
 alias gp='git push'
 
-# Pip Aliases
-  alias pip="/opt/homebrew/opt/python3/bin/pip3"
-  alias pipl="python3 -m pip list"
-  alias pipins="python3 -m pip install "
+# Python/Pip Aliases
+alias python3="/opt/homebrew/bin/python3"
+alias pip="/opt/homebrew/opt/python3/bin/pip3"
+alias pipl="python3 -m pip list"
+alias pipins="python3 -m pip install "
 
