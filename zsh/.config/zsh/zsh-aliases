@@ -7,8 +7,8 @@ alias la='eza -Gxa --color=always --long --no-filesize --icons=always'   #long l
 
 # Brew
 alias brin='brew install '
-alias brud='brew update'
-alias brug='brew upgrade'
+alias bud='brew update'
+alias bug='brew upgrade'
 alias bls='brew list'
 
 # Aliases
