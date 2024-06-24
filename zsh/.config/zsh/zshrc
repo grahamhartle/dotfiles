@@ -44,7 +44,7 @@ function yy() {
 # History
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=$ZDOTDIR/.histfile
+HISTFILE=$HOME/.histfile
 
 # Exports
 export XDG_CONFIG_HOME="$HOME/.config"
