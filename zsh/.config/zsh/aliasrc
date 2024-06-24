@@ -1,0 +1,30 @@
+# Aliases
+alias cat="bat"
+alias la="eza -Gxa --color=always --long --no-filesize --icons=always"
+alias tree="eza --tree --level=3 --color --icons"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+alias rm="rm -ri"
+alias mv="mv -i"
+alias cp="cp -i"
+alias ytd="yt-dlp --format 'bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]'"
+
+# Git
+alias ga="git add ."
+alias gc="git commit -m"
+alias gpush="git push"
+alias gpull="git pull --prune"
+
+# Python
+alias python3="/opt/homebrew/bin/python3"
+alias pip="/opt/homebrew/opt/python3/bin/pip3"
+alias pipl="python3 -m pip list"
+alias pipins="python3 -m pip install "
+
+# Brew
+alias brin="brew install "
+alias bud="brew update"
+alias bug="brew upgrade"
+alias bls="brew list"
+
+

@@ -1,14 +1,9 @@
 #!/usr/bin/env zsh
 
 # some useful options (man zshoptions)
-setopt autocd extendedglob nomatch menucomplete
-setopt interactive_comments
+setopt nomatch menucomplete interactive_comments
 stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
-
-# beeping is annoying
-unsetopt BEEP
-
 
 # completions
 autoload -Uz compinit
@@ -16,6 +11,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion::complete:lsof:*' menu yes select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zmodload zsh/complist
+zmodload zsh/terminfo
 zsh_comp_options+=(globdots)		# Include hidden files.
 compinit
 
@@ -27,9 +23,14 @@ zle -N down-line-or-beginning-search
 # Colors
 autoload -Uz colors && colors
 
-# Prompt
-autoload -U promptinit && promptinit
-# prompt fire yellow yellow red black magenta
+
+# Useful Functions
+source "$ZDOTDIR/zsh-functions"
+# Normal files to source
+# zsh_add_file "zsh-aliases"
+# zsh_add_file "zsh-prompt"
+[ -f "${ZDOTDIR}/aliasrc" ] && source "${ZDOTDIR}/aliasrc"
+[ -f "${ZDOTDIR}/optionrc" ] && source "${ZDOTDIR}/optionrc"
 
 function yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -40,11 +41,22 @@ function yy() {
     rm -f -- "$tmp"
 }
 
-# Useful Functions
-source "$ZDOTDIR/zsh-functions"
-# Normal files to source
-zsh_add_file "zsh-aliases"
-# zsh_add_file "zsh-prompt"
+# History
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=$ZDOTDIR/.histfile
+
+# Exports
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export VISUAL="hx"
+export EDITOR="hx"
+export MANPAGER="nvim +Man!"
+export TERM="xterm-256color"
+export ZELLIJ_CONFIG_DIR="$XDG_CONFIG_HOME/zellij"
+export PYTHONPATH="/opt/homebrew/bin/python3"
+export BAT_THEME="Catppuccin Mocha"
 
 # Plugins
 # For more pluins: https://github.com/unixorn/awesome-zsh-plugins
@@ -58,19 +70,20 @@ zsh_add_plugin "ael-code/zsh-colored-man-pages"
 
 # Key-bindings
 bindkey -v
-# bindkey -s '^o' 'ranger^M'
-# bindkey -s '^f' 'zi^M'
-# bindkey -s '^s' 'ncdu^M'
-# bindkey -s '^n' 'nvim $(fzf)^M'
-# bindkey -s '^v' 'nvim^M'
-# bindkey -s '^z' 'zi^M'
-# bindkey '^[[P' delete-char
-# bindkey "^p" up-line-or-beginning-search # Up
-# bindkey "^n" down-line-or-beginning-search # Down
-# bindkey "^k" up-line-or-beginning-search # Up
-# bindkey "^j" down-line-or-beginning-search # Down
-# bindkey -r "^u"
-# bindkey -r "^d"
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[OA' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^[[OB' history-substring-search-down
+bindkey -M vicmd '^[[A' history-substring-search-up
+bindkey -M vicmd '^[[OA' history-substring-search-up
+bindkey -M vicmd '^[[B' history-substring-search-down
+bindkey -M vicmd '^[[OB' history-substring-search-down
+bindkey -M vicmd '^[[A' history-substring-search-up
+bindkey -M vicmd '^[[OA' history-substring-search-up
+bindkey -M vicmd '^[[B' history-substring-search-down
+bindkey -M vicmd '^[[OB' history-substring-search-down
 
 # FZF
 # TODO update for mac

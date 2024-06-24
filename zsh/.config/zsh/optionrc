@@ -1,0 +1,12 @@
+setopt correct
+setopt autocd
+setopt nobeep
+setopt extendedglob
+setopt nocaseglob
+setopt numericglobsort
+setopt rcexpandparam
+setopt appendhistory
+setopt histignorealldups
+setopt inc_append_history
+setopt histignorespace
+
