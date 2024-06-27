@@ -1,3 +1,5 @@
+#!/usr/local/bin/env zsh
+
 # some useful options (man zshoptions)
 setopt nomatch menucomplete interactive_comments
 stty stop undef		# Disable ctrl-s to freeze terminal.
@@ -20,10 +22,7 @@ autoload -Uz compinit
 compinit
 
 # Useful Functions
-source "$ZDOTDIR/zsh-functions"
-# Normal files to source
-# zsh_add_file "zsh-aliases"
-# zsh_add_file "zsh-prompt"
+[ -f "${ZDOTDIR}/functionrc" ] && source "${ZDOTDIR}/functionrc"
 [ -f "${ZDOTDIR}/aliasrc" ] && source "${ZDOTDIR}/aliasrc"
 [ -f "${ZDOTDIR}/optionrc" ] && source "${ZDOTDIR}/optionrc"
 

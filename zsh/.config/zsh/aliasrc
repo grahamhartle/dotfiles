@@ -1,3 +1,5 @@
+#!/usr/local/bin/env zsh
+
 # Aliases
 alias cat="bat"
 alias la="eza -Gxa --color=always --long --no-filesize --icons=always"
