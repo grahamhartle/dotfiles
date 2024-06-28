@@ -1,4 +1,4 @@
-#!/usr/local/bin/env zsh
+#!/bin/sh
 
 setopt correct
 setopt autocd

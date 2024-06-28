@@ -1,4 +1,4 @@
-#!/usr/local/bin/env zsh
+#!/bin/sh
 
 # some useful options (man zshoptions)
 setopt nomatch menucomplete interactive_comments
