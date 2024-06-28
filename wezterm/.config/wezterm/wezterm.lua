@@ -5,7 +5,7 @@ local config = {
 	-- window_decorations = "NONE",
 	color_scheme = "Catppuccin Mocha",
 	font_size = 14,
-	font = wezterm.font("Hack Nerd Font", { weight = "Regular", italic = false }),
+	font = wezterm.font("JetBrains Mono", { weight = "Regular", italic = false }),
 	line_height = 1,
 	window_background_opacity = 0.9,
 	scrollback_lines = 3500,
