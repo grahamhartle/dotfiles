@@ -1,5 +1,5 @@
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $ZDOTDIR/zshrc
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
