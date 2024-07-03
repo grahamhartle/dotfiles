@@ -1,5 +1,9 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+if [ -f /opt/homebrew/share/bash-completion/bash_comletion ]; then
+    . /opt/homebrew/share/bash-completion/bash_completion
+fi
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # History
@@ -25,6 +29,7 @@ export EDITOR="hx"
 export VISUAL="hx"
 export MANPAGER="nvim +Man!"
 export INPUTRC="~/.inputrc"
+export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
 
 # Aliases
 source ~/.config/bash/aliasrc
