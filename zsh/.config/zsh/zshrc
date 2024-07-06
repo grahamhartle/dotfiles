@@ -1,25 +1,27 @@
 #!/bin/sh
 
 # some useful options (man zshoptions)
-setopt nomatch menucomplete interactive_comments
-stty stop undef		# Disable ctrl-s to freeze terminal.
-zle_highlight=('paste:none')
-
-# colors
 autoload -U colors && colors
-autoload -U compinit && compinit
-autoload -U compinit colors zcalc
+setopt autocd
+setopt interactive_comments
 
-# tab completion
+# History
+export HISTSIZE=10000
+export SAVEHIST="$HISTSIZE"
+export HISTFILE=$HOME/.histfile
+setopt inc_append_history
+
+# Completions
+autoload -U compinit
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle ':completion:*' list-colors "${(s.:.)--color=auto}"
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu select
-
-zstyle :compinstall ~/.config/zsh/.zshrc
-
-autoload -Uz compinit
+zmodload zsh/complist
 compinit
+
+autoload edit-command-line; zle -N edit-command-line
+zle_highlight=('paste:none')
 
 # Useful Functions
 [ -f "${ZDOTDIR}/functionrc" ] && source "${ZDOTDIR}/functionrc"
@@ -35,23 +37,6 @@ function yy() {
     rm -f -- "$tmp"
 }
 
-# History
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=$HOME/.histfile
-
-# Exports
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-export VISUAL="hx"
-export EDITOR="hx"
-export MANPAGER="nvim +Man!"
-export TERM="xterm-256color"
-export ZELLIJ_CONFIG_DIR="$XDG_CONFIG_HOME/zellij"
-export PYTHONPATH="/opt/homebrew/bin/python3"
-export BAT_THEME="Catppuccin Mocha"
-
 # Plugins
 # For more pluins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
@@ -62,13 +47,20 @@ zsh_add_plugin "jeffreytse/zsh-vi-mode"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
 zsh_add_plugin "ael-code/zsh-colored-man-pages"
 
+# Key-bindings
+bindkey -v
+
+# Source files
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
 # FZF
+[ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.fzf/shell/completion.zsh ] && source ~/.fzf/shell/completion.zsh
 [ -f ~/.fzf/shell/key-bindings.zsh ] && source ~/.fzf/shell/key-bindings.zsh
-#[ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
-export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
-export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
 
 # CTRL-/ to toggle small preview window to see the full command
 # CTRL-Y to copy the command into clipboard using pbcopy
@@ -89,28 +81,4 @@ export FZF_CTRL_T_OPTS="
 export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'tree -C {}'"
-
-# Key-bindings
-bindkey -v
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[OA' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey '^[[OB' history-substring-search-down
-bindkey -M vicmd '^[[A' history-substring-search-up
-bindkey -M vicmd '^[[OA' history-substring-search-up
-bindkey -M vicmd '^[[B' history-substring-search-down
-bindkey -M vicmd '^[[OB' history-substring-search-down
-bindkey -M vicmd '^[[A' history-substring-search-up
-bindkey -M vicmd '^[[OA' history-substring-search-up
-bindkey -M vicmd '^[[B' history-substring-search-down
-bindkey -M vicmd '^[[OB' history-substring-search-down
-
-# Source files
-autoload edit-command-line; zle -N edit-command-line
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
 

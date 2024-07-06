@@ -4,7 +4,6 @@ if [ -f /opt/homebrew/share/bash-completion/bash_comletion ]; then
     . /opt/homebrew/share/bash-completion/bash_completion
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # History
 export HISTCONTROL=ignoredups:ignorespace
@@ -39,3 +38,7 @@ eval "$(starship init bash)"
 
 # Zoxide
 eval "$(zoxide init bash)"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source ~/.local/share/blesh/ble.sh
