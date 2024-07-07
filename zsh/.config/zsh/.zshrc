@@ -1,3 +1,2 @@
-source "${ZDOTDIR}/zshrc"
+source ~/.config/zsh/zshrc
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
