@@ -19,7 +19,7 @@ alias gpull="git pull --prune"
 
 # Python
 alias python3="/opt/homebrew/bin/python3"
-alias pip="/opt/homebrew/opt/python3/bin/pip3"
+alias pip="/opt/homebrew/bin/pip3"
 alias pipl="python3 -m pip list"
 alias pipins="python3 -m pip install "
 

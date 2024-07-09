@@ -2,19 +2,12 @@
 
 # some useful options (man zshoptions)
 autoload -U colors && colors
-setopt autocd
-setopt menu_complete
-setopt interactive_comments
 fpath=(~/.config/zsh/zsh-completions/src $fpath)
 
 # History
 export HISTSIZE=10000
 export SAVEHIST="$HISTSIZE"
-export HISTFILE=$HOME/.histfile
-setopt inc_append_history
-setopt extended_history
-setopt hist_ignore_all_dups
-setopt share_history
+export HISTFILE=$XDG_DATA_HOME/zsh/.zsh_history
 
 # Completions
 autoload -U compinit
@@ -53,10 +46,10 @@ function yy() {
 # For more pluins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zsh-users/zsh-completions"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
 zsh_add_plugin "ael-code/zsh-colored-man-pages"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 # Key-bindings
 bindkey -v
