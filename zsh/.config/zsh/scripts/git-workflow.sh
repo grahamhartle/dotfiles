@@ -4,13 +4,13 @@
 # Commit message
 commit_message="$1"
 
-# Add changes
-git add .
+# Check if the current directory is a git repo
+if [ $(git rev-parse --is-inside-work-tree) false ]; then
+    echo "This is not a Git Repo!"
+else
+    git add .
+    git commit -m "$commit_message"
+    git push
+    echo "Changes commited and pushed with message: $commit_message"
+fi
 
-# Commit changes
-git commit -m "$commit_message"
-
-# Push changes
-git push
-
-echo "Changes commited and pushed with message: $commit_message"
