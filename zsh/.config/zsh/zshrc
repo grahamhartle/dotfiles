@@ -2,7 +2,6 @@
 
 # some useful options (man zshoptions)
 autoload -U colors && colors
-fpath=(~/.config/zsh/zsh-completions/src $fpath)
 
 # History
 export HISTSIZE=10000
@@ -11,6 +10,7 @@ export HISTFILE=$XDG_DATA_HOME/zsh/.zsh_history
 
 # Completions
 autoload -U compinit
+fpath=(~/.config/zsh/zsh-completions/src $fpath)
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle ':completion:*' list-colors "${(s.:.)--color=auto}"
 zstyle ':completion:*' rehash true
