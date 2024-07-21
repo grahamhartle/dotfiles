@@ -13,4 +13,3 @@ if [ -d .git ]; then
 else
     echo "This is not a Git Repo!"
 fi
-
