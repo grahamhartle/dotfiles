@@ -1,11 +1,11 @@
-#! /bin/zsh
+#! /usr/bin/env zsh
 # Automate Git workflow
 
 # Commit message
 commit_message="$1"
 
 # Check if the current directory is a git repo
-if [ $(git rev-parse --is-inside-work-tree) = true ]; then
+if [ -d .git ]; then
     git add .
     git commit -m "$commit_message"
     git push
