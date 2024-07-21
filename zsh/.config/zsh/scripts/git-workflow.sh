@@ -5,7 +5,7 @@
 commit_message="$1"
 
 # Check if the current directory is a git repo
-if [ $(git rev-parse --is-inside-work-tree) false ]; then
+if [ $(git rev-parse --is-inside-work-tree) = false ]; then
     echo "This is not a Git Repo!"
 else
     git add .
