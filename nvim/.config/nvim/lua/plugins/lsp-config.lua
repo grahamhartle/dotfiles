@@ -20,7 +20,13 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local lspconfig = require("lspconfig")
+      lspconfig.tailwindcss.setup({
+        capabilities = capabilities
+      })
       lspconfig.tsserver.setup({
+        capabilities = capabilities
+      })
+      lspconfig.solargraph.setup({
         capabilities = capabilities
       })
       lspconfig.html.setup({
@@ -34,6 +40,8 @@ return {
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.code_action, {})
+      vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {})
     end,
   },
 }
