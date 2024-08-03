@@ -1,8 +1,11 @@
 local wezterm = require("wezterm")
-local config = {
-	initial_cols = 220,
-	initial_rows = 60,
-	-- window_decorations = "NONE",
+local config = wezterm.config_builder()
+
+config = {
+	automatically_reload_config = true,
+	window_decorations = "RESIZE",
+  window_close_confirmation = "NeverPrompt",
+  enable_tab_bar = false,
 	color_scheme = "Catppuccin Mocha",
 	font_size = 14,
 	font = wezterm.font("JetBrains Mono", { weight = "Regular", italic = false }),
