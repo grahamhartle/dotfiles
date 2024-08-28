@@ -34,6 +34,7 @@
     zellij
     tmux
     nano
+    kitty
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -81,7 +82,7 @@
   #  /etc/profiles/per-user/graham/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+  #  EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
