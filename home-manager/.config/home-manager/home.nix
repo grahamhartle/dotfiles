@@ -35,7 +35,6 @@
     tmux
     nano
     kitty
-    wezterm
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -58,7 +57,17 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-
+    ".config/bat".source = ~/dotfiles/bat;
+    ".config/helix".source = ~/dotfiles/helix;
+    ".config/kitty".source = ~/dotfiles/kitty;
+    ".config/nvim".source = ~/dotfiles/nvim;
+    ".config/skhd".source = ~/dotfiles/skhd;
+    ".config/tmux".source = ~/dotfiles/tmux;
+    ".config/wezterm".source = ~/dotfiles/wezterm;
+    ".config/yabai".source = ~/dotfiles/yabai;
+    ".config/yazi".source = ~/dotfiles/yazi;
+    ".config/zellij".source = ~/dotfiles/zellij;
+    ".config/zsh".source = ~/dotfiles/zsh;
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose

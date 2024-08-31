@@ -15,9 +15,6 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       
-      # Setup TouchID to perform Sudo
-      security.pam.enableSudoTouchIdAuth = true;
-
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
       # nix.package = pkgs.nix;
@@ -38,14 +35,16 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
+      security.pam.enableSudoTouchIdAuth = true;
+
     };
     homeconfig = { pkgs, ... }: {
         home.stateVersion = "24.05";
-	programs.home-manager.enable = true;
-	home.packages = with pkgs; [];
-	home.sessionVariables = {
-	    EDITOR = "vim";
-	};
+      	programs.home-manager.enable = true;
+	      home.packages = with pkgs; [];
+	      home.sessionVariables = {
+          #  EDITOR = "vim";
+    	};
     };
   in
   {
