@@ -23,18 +23,17 @@
     # pkgs.hello
     atuin
     bat
-    darwin.trash
     eza
+    darwin.trash
     fzf
     helix
-    starship
     neovim
-    yazi
-    zoxide
-    zellij
+    starship
     tmux
-    nano
-    kitty
+    yazi
+    zellij
+    zoxide
+    
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -57,17 +56,21 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".config/bat".source = ~/dotfiles/bat;
-    ".config/helix".source = ~/dotfiles/helix;
-    ".config/kitty".source = ~/dotfiles/kitty;
-    ".config/nvim".source = ~/dotfiles/nvim;
-    ".config/skhd".source = ~/dotfiles/skhd;
-    ".config/tmux".source = ~/dotfiles/tmux;
-    ".config/wezterm".source = ~/dotfiles/wezterm;
-    ".config/yabai".source = ~/dotfiles/yabai;
-    ".config/yazi".source = ~/dotfiles/yazi;
-    ".config/zellij".source = ~/dotfiles/zellij;
-    ".config/zsh".source = ~/dotfiles/zsh;
+    
+    ".config/atuin".source = ~/dotfiles/atuin/.config/atuin;
+    ".config/bat".source = ~/dotfiles/bat/.config/bat;
+    ".config/helix".source = ~/dotfiles/helix/.config/helix;
+    ".config/kitty".source = ~/dotfiles/kitty/.config/kitty;
+    ".config/nvim".source = ~/dotfiles/nvim/.config/nvim;
+    ".config/skhd".source = ~/dotfiles/skhd/.config/skhd;
+    ".config/starship".source = ~/dotfiles/starship/.config/starship;
+    ".config/tmux".source = ~/dotfiles/tmux/.config/tmux;
+    ".config/wezterm".source = ~/dotfiles/wezterm/.config/wezterm;
+    ".config/yabai".source = ~/dotfiles/yabai/.config/yabai;
+    ".config/yazi".source = ~/dotfiles/yazi/.config/yazi;
+    ".config/zellij".source = ~/dotfiles/zellij/.config/zellij;
+    ".config/zsh".source = ~/dotfiles/zsh/.config/zsh;
+    
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -92,7 +95,7 @@
   #  /etc/profiles/per-user/graham/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-  #  EDITOR = "nvim";
+    # EDITOR = "emacs";
   };
 
   # Let Home Manager install and manage itself.
