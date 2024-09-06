@@ -8,28 +8,6 @@ export HISTSIZE=10000
 export SAVEHIST="$HISTSIZE"
 export HISTFILE=$XDG_DATA_HOME/zsh/.zsh_history
 
-# Completions
-fpath=(~/.config/zsh/zsh-completions/src $fpath)
-
-autoload -U compinit
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-zstyle ':completion:*' list-colors "${(s.:.)--color=auto}"
-zstyle ':completion:*' rehash true
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-
-_comp_options+=(globdots)
-
-autoload edit-command-line; zle -N edit-command-line
-zle_highlight=('paste:none')
-
-# Bindkey
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
 # Useful Functions
 [ -f "${ZDOTDIR}/functionrc" ] && source "${ZDOTDIR}/functionrc"
 [ -f "${ZDOTDIR}/aliasrc" ] && source "${ZDOTDIR}/aliasrc"
@@ -62,6 +40,28 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
+
+# Completions
+fpath=(~/.config/zsh/zsh-completions/src $fpath)
+
+autoload -U compinit
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' list-colors "${(s.:.)--color=auto}"
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+
+_comp_options+=(globdots)
+
+autoload edit-command-line; zle -N edit-command-line
+zle_highlight=('paste:none')
+
+# Bindkey
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
