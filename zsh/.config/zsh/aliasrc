@@ -28,6 +28,6 @@ alias pipins="python3 -m pip install "
 alias brin="brew install "
 alias bud="brew update"
 alias bug="brew upgrade"
-alias bls="brew list"
+alias bls="brew ls"
 
 
