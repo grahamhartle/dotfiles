@@ -7,7 +7,7 @@ config = {
   window_close_confirmation = "NeverPrompt",
   enable_tab_bar = false,
 	color_scheme = "Catppuccin Mocha",
-	font_size = 14,
+	font_size = 15,
 	font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular", italic = false }),
 	line_height = 1,
 	window_background_opacity = 0.9,
