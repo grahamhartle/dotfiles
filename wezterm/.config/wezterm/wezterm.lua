@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config = {
+  term = "wezterm",
 	automatically_reload_config = true,
 	window_decorations = "RESIZE",
   window_close_confirmation = "NeverPrompt",
