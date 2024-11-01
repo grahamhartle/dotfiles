@@ -1,0 +1,31 @@
+ls
+cd
+z Documents/
+cd Documents/Development/
+ls
+cd python
+cd
+mkdir ~/.cache/starship<\n>starship init nu | save -f ~/.cache/starship/init.nu
+ls .cache
+clear
+$nu.config-path
+cd .config/nushell
+vim config.nu
+exit
+cd
+cd Documents/Development/python
+cd
+clear
+cd dotfiles/
+ls
+mkdir -p nushell/.config
+ls
+mkdir nushell
+mkdir nushell/.config
+cd
+cd .config/
+ls
+cd dotfiles/
+la
+ls
+ga
