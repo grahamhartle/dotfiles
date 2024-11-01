@@ -29,3 +29,10 @@ cd dotfiles/
 la
 ls
 ga
+git add .
+git commit -m "added nushell config"
+git push
+cd
+ls
+cd dotfiles/
+git status
