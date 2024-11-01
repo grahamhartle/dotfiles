@@ -36,3 +36,13 @@ cd
 ls
 cd dotfiles/
 git status
+git add nushell/.config/nushell/history.txt
+git commit -m "added nushell config"
+git push
+ls -a
+clear
+cd
+ls -a
+vim .gitignore
+clear
+exit
