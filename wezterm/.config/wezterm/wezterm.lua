@@ -3,6 +3,7 @@ local config = wezterm.config_builder()
 
 config = {
   term = "wezterm",
+  native_macos_fullscreen_mode = true,
 	automatically_reload_config = true,
 	window_decorations = "RESIZE",
   window_close_confirmation = "NeverPrompt",
