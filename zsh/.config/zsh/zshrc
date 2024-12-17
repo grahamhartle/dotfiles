@@ -30,9 +30,9 @@ source ~/.local/share/zap/zap.zsh
 plug "marlonrichert/zsh-autocomplete"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-completions"
+plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
 plug "ael-code/zsh-colored-man-pages"
-plug "zsh-users/zsh-syntax-highlighting"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -62,8 +62,8 @@ export FZF_ALT_C_OPTS="
   --preview 'tree -C {}'"
 
 # Source files
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
