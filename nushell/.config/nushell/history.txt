@@ -46,3 +46,33 @@ ls -a
 vim .gitignore
 clear
 exit
+cd
+cd .config/nushell
+ls -a
+hx config.nu
+hx env.nu
+hx config.nu
+ls -a .cache
+ls -a ~/.cache
+ls -a ~/.cache/starship/
+cd ..
+cd starship
+ls
+exit
+cd
+ls -a ~/.cache/starship/
+ls -a ~/.config/starship/
+hx .config/starship/starship.toml
+exit
+starship init nu
+ls -a ~/.config/starship/
+ls -a ~/.cache/starship
+cd .cache/starship
+hx init.nu
+exit
+la
+clear
+exit
+pm
+clear 
+exit

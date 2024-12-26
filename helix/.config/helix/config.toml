@@ -1,9 +1,14 @@
-theme="catppuccin_mocha"
+theme = "catppuccin_mocha"
 
 [editor]
 line-number = "relative"
 true-color = true
 bufferline = "multiple"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "block"
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
@@ -11,3 +16,15 @@ C-y = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- bash ~/.confi
 
 [editor.file-picker]
 hidden = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = []
+right = ["diagnostics", "selections", "position", "file-line-ending", "file-type"]
+separator = "|"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+enable = true
