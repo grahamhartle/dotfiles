@@ -218,3 +218,8 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
 run = ["move-node-to-workspace B"]
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ["layout floating", "move-node-to-workspace T"]
+
