@@ -14,17 +14,5 @@ config = {
 	line_height = 0.9,
 	window_background_opacity = 0.9,
 	scrollback_lines = 3500,
-  keys = {
-    {
-      key = 'f',
-      mods = 'CTRL',
-      action = wezterm.action.ToggleFullScreen,
-    },
-    {
-      key = '\'',
-      mods = 'CTRL',
-      action = wezterm.action.ClearScrollback 'ScrollbackAndViewport',
-    }
-  }
 }
 return config

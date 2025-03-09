@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Modular path for mojo
+
+export PATH="$PATH:/Users/graham/.modular/bin"
+
 # some useful options (man zshoptions)
 autoload -U colors && colors
 

@@ -2,3 +2,152 @@
 plugins.ruff.enabled = true
 plugins.black.enabled = true
 
+
+[language-server]
+ols      = { command = "ols", args = [] }
+marksman = { command = "marksman", args = ["server"] }
+
+
+
+[[language]]
+name = "odin"
+#auto-format = false
+scope = "scope.odin" # "source.odin"
+file-types = ["odin"]
+roots = ["ols.json"]
+language-servers = [ "ols" ]
+comment-token = "//"
+indent = { tab-width = 2, unit = " " }
+injection-regex = "odin"
+formatter = { command = "odinfmt", args = [ "-stdin", "true" ] }
+
+
+[[grammar]]
+name = "odin"
+#source = { git = "https://github.com/ap29600/tree-sitter-odin", rev = "b219207e49ffca2952529d33e94ed63b1b75c4f1" }
+source = { git = "https://github.com/amaanq/tree-sitter-odin" }
+
+
+
+[[language]]
+name = "markdown_marksman_1"
+scope = "source.md"
+injection-regex = "md|markdown"
+file-types = ["md", "markdown", "PULLREQ_EDITMSG", "mkd", "mdwn", "mdown", "markdn", "mdtxt", "mdtext", "workbook"]
+roots = [".marksman.toml"]
+language-servers = [ "marksman" ]
+indent = { tab-width = 2, unit = "  " }
+
+
+[[grammar]]
+name = "markdown"
+source = { git = "https://github.com/MDeiml/tree-sitter-markdown", rev = "aaf76797aa8ecd9a5e78e0ec3681941de6c945ee", subpath = "tree-sitter-markdown" }
+
+
+
+[[language]]
+name = "markdown_and_text_2_pt_PT"
+language-servers = [{ name = "ltex_pt"}]
+file-types = ["md", "txt"]
+scope = "text.markdown"
+roots = []
+
+[language-server.ltex_pt]
+command = "/home/joaocarvalho/ltxt-ls/ltex-ls-16.0.0/bin/ltex-ls"
+
+[language-server.ltex_pt.config.ltex]
+language = "pt-PT"
+# language = "en-US"
+
+[language-server.ltex_pt.config.ltex.dictionary]
+"en-PT" = ["VScode", "NeoVim", "Vim", "Emacs"]
+
+
+[[grammar]]
+name = "markdown"
+source = { git = "https://github.com/MDeiml/tree-sitter-markdown", rev = "aaf76797aa8ecd9a5e78e0ec3681941de6c945ee", subpath = "tree-sitter-markdown" }
+
+
+
+# markdown_and_text_3_en_US
+[[language]]
+name = "markdown"
+language-servers = [{ name = "ltex_us"}]
+file-types = ["md", "txt"]
+scope = "text.markdown"
+roots = []
+
+[language-server.ltex_us]
+command = "/home/joaocarvalho/ltxt-ls/ltex-ls-16.0.0/bin/ltex-ls"
+
+[language-server.ltex_us.config.ltex]
+language = "en-US"
+# language = "en-PT"
+
+[language-server.ltex_us.config.ltex.dictionary]
+"en-US" = ["VScode", "NeoVim", "Vim", "Emacs"]
+
+
+[[grammar]]
+name = "markdown"
+source = { git = "https://github.com/MDeiml/tree-sitter-markdown", rev = "aaf76797aa8ecd9a5e78e0ec3681941de6c945ee", subpath = "tree-sitter-markdown" }
+
+
+[language-server.gopls]
+command = "gopls"
+
+[language-server.gopls.config.hints]
+assignVariableTypes = true
+compositeLiteralFields = true
+constantValues = true
+functionTypeParameters = true
+parameterNames = true
+rangeVariableTypes = true
+
+[language-server.golangci-lint-lsp]
+command = "golangci-lint-langserver"
+
+[language-server.golangci-lint-lsp.config]
+command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1"]
+
+
+[[language]]
+name = "zig"
+scope = "source.zig"
+injection-regex = "zig"
+file-types = ["zig", "zon"]
+roots = ["build.zig"]
+auto-format = true
+comment-tokens = ["//", "///", "//!"]
+language-servers = [ "zls" ]
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "zig" , args = ["fmt", "--stdin"] }
+
+[language.debugger]
+name = "lldb-dap"
+transport = "stdio"
+command = "lldb-dap"
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [ { name = "binary", completion = "filename" } ]
+args = { console = "internalConsole", program = "{0}" }
+
+[[language.debugger.templates]]
+name = "attach"
+request = "attach"
+completion = [ "pid" ]
+args = { console = "internalConsole", pid = "{0}" }
+
+[[language.debugger.templates]]
+name = "gdbserver attach"
+request = "attach"
+completion = [ { name = "lldb connect url", default = "connect://localhost:3333" }, { name = "file", completion = "filename" }, "pid" ]
+args = { console = "internalConsole", attachCommands = [ "platform select remote-gdb-server", "platform connect {0}", "file {1}", "attach {2}" ] }
+
+[[grammar]]
+name = "zig"
+source = { git = "https://github.com/tree-sitter-grammars/tree-sitter-zig", rev = "eb7d58c2dc4fbeea4745019dee8df013034ae66b" }
+
+
