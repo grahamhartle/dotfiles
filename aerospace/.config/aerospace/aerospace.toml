@@ -221,5 +221,9 @@ run = ["move-node-to-workspace B"]
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = ["layout floating", "move-node-to-workspace T"]
+run = ["move-node-to-workspace T"]
+
+[[on-window-detected]]
+if.app-id = 'com.zen-browser.zen'
+run = ["move-node-to-workspace B"]
 
