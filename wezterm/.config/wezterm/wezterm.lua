@@ -14,8 +14,6 @@ config = {
 	line_height = 0.9,
 	window_background_opacity = 0.9,
 	scrollback_lines = 3500,
-<<<<<<< HEAD
-=======
 	keys = {
 		{
 			key = "f",
@@ -28,6 +26,5 @@ config = {
 			action = wezterm.action.ClearScrollback("ScrollbackAndViewport"),
 		},
 	},
->>>>>>> 48b8fcf811d4b71b819cc8dd5d33cf5c27f6d965
 }
 return config
