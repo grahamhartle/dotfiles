@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Modular path for mojo
+
+export PATH="$PATH:/Users/graham/.modular/bin"
+
 # some useful options (man zshoptions)
 autoload -U colors && colors
 
@@ -93,3 +97,5 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # Key-bindings
 bindkey -v
 
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
