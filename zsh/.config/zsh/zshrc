@@ -4,6 +4,12 @@
 
 # export PATH="$PATH:/Users/graham/.modular/bin"
 
+# Odin path
+
+export PATH="$PATH:/Users/graham/coding/Odin"
+export PATH="$PATH:/Users/graham/coding/Odin/vendor/sdl2"
+export PATH="$PATH:/Users/graham/coding/Odin/vendor/sdl2/image"
+
 # some useful options (man zshoptions)
 autoload -U colors && colors
 
@@ -99,3 +105,5 @@ bindkey -v
 
 # export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="/Users/graham/Development/odin/sdl2-in-odin:$PATH"
+
