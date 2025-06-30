@@ -1,15 +1,5 @@
 #!/bin/sh
 
-# Modular path for mojo
-
-# export PATH="$PATH:/Users/graham/.modular/bin"
-
-# Odin path
-
-export PATH="$PATH:/Users/graham/coding/Odin"
-export PATH="$PATH:/Users/graham/coding/Odin/vendor/sdl2"
-export PATH="$PATH:/Users/graham/coding/Odin/vendor/sdl2/image"
-
 # some useful options (man zshoptions)
 autoload -U colors && colors
 
@@ -72,8 +62,6 @@ export FZF_ALT_C_OPTS="
   --preview 'tree -C {}'"
 
 # Source files
-# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
@@ -103,7 +91,4 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # Key-bindings
 bindkey -v
 
-# export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export PATH="/Users/graham/Development/odin/sdl2-in-odin:$PATH"
 
