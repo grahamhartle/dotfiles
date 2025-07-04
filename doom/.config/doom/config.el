@@ -119,3 +119,6 @@
                 (org-level-7 . 1.0)
                 (org-level-8 . 1.0)))
   (set-face-attribute (car face) nil :font "Gill Sans" :weight 'regular :height (cdr face)))
+
+(use-package magit
+  :ensure t)
