@@ -22,8 +22,8 @@
 ;;            :files ("some-file.el" "src/lisp/*.el")))
 ;;
 
- (package! odin-mode
-   :recipe (:host github :repo "mattt-b/odin-mode"))
+(package! odin-mode
+  :recipe (:host github :repo "mattt-b/odin-mode"))
 
 (package! catppuccin-theme)
 

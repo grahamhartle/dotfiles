@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'regular)
+(setq doom-font (font-spec :family "FiraCode Nerd Font Propo" :size 15 :weight 'regular)
       doom-variable-pitch-font (font-spec :family "Gill Sans" :size 15))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -41,6 +41,10 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
+(dolist (mode '(org-mode-hook
+                vterm-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 ;; transparency
 (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
@@ -48,8 +52,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
-
+(setq org-directory "~/Documents/org/")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -120,5 +123,3 @@
                 (org-level-8 . 1.0)))
   (set-face-attribute (car face) nil :font "Gill Sans" :weight 'regular :height (cdr face)))
 
-(use-package magit
-  :ensure t)

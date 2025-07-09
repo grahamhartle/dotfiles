@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PATH=$PATH:"/Library/TeX/texbin"
+
 # some useful options (man zshoptions)
 autoload -U colors && colors
 
@@ -13,14 +15,14 @@ export HISTFILE=$XDG_DATA_HOME/zsh/.zsh_history
 [ -f "${ZDOTDIR}/aliasrc" ] && source "${ZDOTDIR}/aliasrc"
 [ -f "${ZDOTDIR}/optionrc" ] && source "${ZDOTDIR}/optionrc"
 
-function yy() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
-}
+# function yy() {
+#     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+#     yazi "$@" --cwd-file="$tmp"
+#     if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+#     cd -- "$cwd"
+#     fi
+#     rm -f -- "$tmp"
+# }
 
 source ~/.local/share/zap/zap.zsh
 
