@@ -10,7 +10,7 @@ config = {
 	enable_tab_bar = false,
 	color_scheme = "Catppuccin Mocha",
 	font_size = 15,
-	font = wezterm.font("JetBrains Mono", { weight = "Regular", italic = false }),
+	font = wezterm.font("Hack Nerd Font", { weight = "Regular", italic = false }),
 	line_height = 0.9,
 	window_background_opacity = 0.9,
 	scrollback_lines = 3500,

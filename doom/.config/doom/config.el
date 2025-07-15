@@ -6,7 +6,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
- (setq user-full-name "Graham Hartle"
+(setq user-full-name "Graham Hartle"
        user-mail-address "graham@grahamhartle.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "FiraCode Nerd Font Propo" :size 15 :weight 'regular)
+(setq doom-font (font-spec :family "Hack Nerd Font Propo" :size 15 :weight 'regular)
       doom-variable-pitch-font (font-spec :family "Gill Sans" :size 15))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -102,12 +102,12 @@
                     :server-id 'ols
                     :multi-root t))) ;; Ensures lsp-mode sends "workspaceFolders" to the server
 
-(use-package org
+(use-package! org
   :config
   (setq org-ellipsis " ▾"))
 
 
-(use-package org-bullets
+(use-package! org-bullets
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom

@@ -1,7 +1,5 @@
 #!/bin/sh
 
-export PATH=$PATH:"/Library/TeX/texbin"
-
 # some useful options (man zshoptions)
 autoload -U colors && colors
 

@@ -22,11 +22,6 @@
 ;;            :files ("some-file.el" "src/lisp/*.el")))
 ;;
 
-(package! odin-mode
-  :recipe (:host github :repo "mattt-b/odin-mode"))
-
-(package! catppuccin-theme)
-
 ;; If you'd like to disable a package included with Doom, you can do so here
 ;; with the `:disable' property:
 ;; (package! builtin-package :disable t)
@@ -53,3 +48,13 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+(package! odin-mode
+  :recipe (:host github :repo "mattt-b/odin-mode"))
+
+(package! catppuccin-theme)
+
+(package! yasnippet-snippets)
+
+(package! org-bullets)
+
