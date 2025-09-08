@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "Graham Hartle"
-       user-mail-address "graham@grahamhartle.com")
+      user-mail-address "graham@grahamhartle.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -22,7 +22,7 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "Hack Nerd Font Propo" :size 15 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Gill Sans" :size 15))
+      doom-variable-pitch-font (font-spec :family "ETBembo" :size 15))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -41,18 +41,21 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
+
 (dolist (mode '(org-mode-hook
                 vterm-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-;; transparency
+;; Transparency
 (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
 (add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Documents/org/")
+(add-hook 'org-mode-hook 'variable-pitch-mode)
+(add-hook 'org-mode-hook 'visual-line-mode)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -85,33 +88,31 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-;;
-;; Enable odin-mode and configure OLS as the language server
+
+;; Enable Odin-Mode
 (use-package! odin-mode
   :mode ("\\.odin\\'" . odin-mode)
   :hook (odin-mode . lsp))
 
-;; Set up OLS as the language server for Odin, ensuring lsp-mode is loaded first
+;; Set up OLS as the language server for Odin
 (with-eval-after-load 'lsp-mode
-  (setq-default lsp-auto-guess-root t) ;; Helps find the ols.json file with Projectile or project.el
+  (setq-default lsp-auto-guess-root t)
   (setq lsp-language-id-configuration (cons '(odin-mode . "odin") lsp-language-id-configuration))
-
   (lsp-register-client
-    (make-lsp-client :new-connection (lsp-stdio-connection "/Users/graham/coding/ols/ols")
+   (make-lsp-client :new-connection (lsp-stdio-connection "/Users/graham/coding/ols/ols")
                     :major-modes '(odin-mode)
                     :server-id 'ols
-                    :multi-root t))) ;; Ensures lsp-mode sends "workspaceFolders" to the server
+                    :multi-root t)))
 
 (use-package! org
   :config
   (setq org-ellipsis " ▾"))
 
-
 (use-package! org-bullets
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom
-  (org-bullets-bullets-list '("◉" "○" "●" "○" "●" "○" "●")))
+  (org-bullets-bullets-list '("◉" "○" "●" "⊙" "⊚" "⊛")))
 
 (dolist (face '((org-level-1 . 1.6)
                 (org-level-2 . 1.3)
@@ -121,5 +122,8 @@
                 (org-level-6 . 1.0)
                 (org-level-7 . 1.0)
                 (org-level-8 . 1.0)))
-  (set-face-attribute (car face) nil :font "Gill Sans" :weight 'regular :height (cdr face)))
+  (set-face-attribute (car face) nil :font "ETBembo" :weight 'regular :height (cdr face)))
+
+(with-eval-after-load 'ox
+  (require 'ox-hugo))
 
