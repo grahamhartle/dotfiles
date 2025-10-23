@@ -39,6 +39,7 @@ plug "ael-code/zsh-colored-man-pages"
 [ -f ~/.fzf/shell/completion.zsh ] && source ~/.fzf/shell/completion.zsh
 [ -f ~/.fzf/shell/key-bindings.zsh ] && source ~/.fzf/shell/key-bindings.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
 export FZF_DEFAULT_OPTS="-m --height 50% --layout=reverse --border --inline-info"
 
 # CTRL-/ to toggle small preview window to see the full command
@@ -91,4 +92,8 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # Key-bindings
 bindkey -v
 
+
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="Development/coding/zls/zig-out/bin:$PATH"
 
