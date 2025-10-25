@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Hack Nerd Font Propo" :size 15 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "ETBembo" :size 15))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 18 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Fira Code" :size 15))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -99,7 +99,7 @@
   (setq-default lsp-auto-guess-root t)
   (setq lsp-language-id-configuration (cons '(odin-mode . "odin") lsp-language-id-configuration))
   (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection "/Users/graham/coding/ols/ols")
+   (make-lsp-client :new-connection (lsp-stdio-connection "/Users/graham/ols/ols")
                     :major-modes '(odin-mode)
                     :server-id 'ols
                     :multi-root t)))
@@ -122,7 +122,7 @@
                 (org-level-6 . 1.0)
                 (org-level-7 . 1.0)
                 (org-level-8 . 1.0)))
-  (set-face-attribute (car face) nil :font "ETBembo" :weight 'regular :height (cdr face)))
+  (set-face-attribute (car face) nil :font "Fira Code" :weight 'regular :height (cdr face)))
 
 (with-eval-after-load 'ox
   (require 'ox-hugo))
