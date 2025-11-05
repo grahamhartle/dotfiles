@@ -1,0 +1,34 @@
+ls -a
+cd
+ls -a
+exit
+ls -a
+exit
+ls -a
+clear
+exit
+la
+ls -a
+clear
+exit
+cd
+clear
+exit
+clear
+ls -a
+exit
+clear
+exit
+clear
+exit
+ls -a
+cd .config
+cd
+cd dotfiles
+cd
+clear
+exit
+ls -a
+clear
+ls dotfiles
+exit
