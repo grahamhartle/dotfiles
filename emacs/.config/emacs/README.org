@@ -1,6 +1,44 @@
+#+TITLE: My Emacs config
+#+AUTHOR: Graham Hartle
+#+PROPERTY: header-args :tangle "init.el"
+
+
+* Table of contents :toc:
+- [[#set-up-the-customel-file][Set up the 'custom.el' file]]
+- [[#set-up-the-basic-defaults-for-emacs][Set up the basic defaults for Emacs]]
+- [[#fonts][Fonts]]
+- [[#initialising-the-package-management-system][Initialising the package management system]]
+- [[#packages][Packages]]
+  - [[#catppuccin-theme][Catppuccin theme]]
+  - [[#delsel][Delsel]]
+  - [[#nerd-icons][Nerd-Icons]]
+  - [[#vertico][Vertico]]
+  - [[#marginalia][Marginalia]]
+  - [[#orderless][Orderless]]
+  - [[#savehist][Savehist]]
+  - [[#corfu][Corfu]]
+  - [[#dired][Dired]]
+  - [[#trashed][Trashed]]
+  - [[#doom-modeline][Doom-Modeline]]
+- [[#org-setup][Org setup]]
+  - [[#org-directory][Org directory]]
+  - [[#org][Org]]
+  - [[#toc-org][Toc-org]]
+  - [[#settings][Settings]]
+  - [[#org-modern][Org-Modern]]
+- [[#terminal-setup][Terminal setup]]
+  - [[#vterm][Vterm]]
+  - [[#magit][Magit]]
+  - [[#set-up-odin-mode-and-ols-for-programming][Set up Odin-mode and OLS for programming]]
+
+* Set up the 'custom.el' file
+#+begin_src emacs-lisp
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)
+#+end_src
 
+* Set up the basic defaults for Emacs
+#+begin_src emacs-lisp
 (setq user-full-name "Graham Hartle"
       user-mail-address "graham@grahamhartle.com")
 
@@ -17,7 +55,10 @@
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+#+end_src
 
+* Fonts
+#+begin_src emacs-lisp
 (let ((mono-spaced-font "JetBrainsMono Nerd Font")
       (proportionately-spaced-font "Gill Sans"))
   (set-face-attribute 'default nil :family mono-spaced-font :height 160)
@@ -26,7 +67,10 @@
 
 (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
 (set-face-attribute 'font-lock-keyword-face nil :slant 'italic)
+#+end_src
 
+* Initialising the package management system
+#+begin_src emacs-lisp
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -48,7 +92,11 @@
 	     '("\\`\\*\\(Warnings\\|Compile-Log\\)\\*\\'"
 	       (display-buffer-no-window)
 	       (allow-no-window . t)))
+#+end_src
 
+* Packages
+** Catppuccin theme
+#+begin_src emacs-lisp
 (use-package catppuccin-theme
   :ensure t
   :config
@@ -56,7 +104,10 @@
   (setq catppuccin-italic-comments t)
   (setq catppuccin-italic-constructs t)
   (load-theme 'catppuccin t))
+#+end_src
 
+** Delsel
+#+begin_src emacs-lisp
 (use-package delsel
   :ensure nil
   :hook (after-init . delete-selection-mode))
@@ -86,7 +137,10 @@ The DWIM behaviour of this command is as follows:
     (keyboard-quit))))
 
 (define-key global-map (kbd "C-g") #'prot/keyboard-quit-dwim)
+#+end_src
 
+** Nerd-Icons
+#+begin_src emacs-lisp
 (use-package nerd-icons
   :ensure t)
 
@@ -105,26 +159,41 @@ The DWIM behaviour of this command is as follows:
 (use-package nerd-icons-dired
   :ensure t
   :hook (dired-mode . nerd-icons-dired-mode))
+#+end_src
 
+** Vertico
+#+begin_src emacs-lisp
 (use-package vertico
   :ensure t
   :hook (after-init . vertico-mode))
+#+end_src
 
+** Marginalia
+#+begin_src emacs-lisp
 (use-package marginalia
   :ensure t
   :hook (after-init . marginalia-mode))
+#+end_src
 
+** Orderless
+#+begin_src emacs-lisp
 (use-package orderless
   :ensure t
   :config
   (setq completion-styles '(orderless basic))
   (setq completion-category-defaults nil)
   (setq completion-category-overrides nil))
+#+end_src
 
+** Savehist
+#+begin_src emacs-lisp
 (use-package savehist
   :ensure nil
   :hook (after-init . savehist-mode))
+#+end_src
 
+** Corfu
+#+begin_src emacs-lisp
 (use-package corfu
   :ensure t
   :hook (after-init . global-corfu-mode)
@@ -141,7 +210,10 @@ The DWIM behaviour of this command is as follows:
   (with-eval-after-load 'savehist
     (corfu-history-mode 1)
     (add-to-list 'savehist-additional-variables 'corfu-history)))
+#+end_src
 
+** Dired
+#+begin_src emacs-lisp
 (use-package dired
   :ensure nil
   :commands (dired)
@@ -165,7 +237,10 @@ The DWIM behaviour of this command is as follows:
     ("S-TAB" . dired-subtree-remove))
   :config
   (setq dired-subtree-use-backgrounds nil))
+#+end_src
 
+** Trashed
+#+begin_src emacs-lisp
 (use-package trashed
   :ensure t
   :commands (trashed)
@@ -174,14 +249,25 @@ The DWIM behaviour of this command is as follows:
   (setq trashed-use-header-line t)
   (setq trashed-sort-key '("Date deleted" . t))
   (setq trashed-date-format "%Y-%m-%d %H:%M:%S"))
+#+end_src
 
+
+** Doom-Modeline
+#+begin_src emacs-lisp
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 25)))
+#+end_src
 
+* Org setup
+** Org directory
+#+begin_src emacs-lisp
 (setq org-directory "~/Documents/org")
+#+end_src
 
+** Org
+#+begin_src emacs-lisp
 (use-package org
   :init (org-mode)
   :config
@@ -190,11 +276,17 @@ The DWIM behaviour of this command is as follows:
   (visual-line-mode 1)
   (setq org-ellipsis " ▾"
         org-hide-emphasis-markers t))
+#+end_src
 
+** Toc-org
+#+begin_src emacs-lisp
 (use-package toc-org
     :commands toc-org-enable
     :init (add-hook 'org-mode-hook 'toc-org-enable))
+#+end_src
 
+** Settings
+#+begin_src emacs-lisp
 (require 'org-tempo)
 (require 'org-indent)
 
@@ -213,7 +305,10 @@ The DWIM behaviour of this command is as follows:
                 (org-level-7 . 1.1)
                 (org-level-8 . 1.1)))
     (set-face-attribute (car face) nil :font "Gill Sans" :weight 'regular :height (cdr face)))
+#+end_src
 
+** Org-Modern
+#+begin_src emacs-lisp
 (use-package org-modern
   :config
   (setq org-modern-star '("◉" "○" "◈" "◇" "*"))
@@ -249,7 +344,11 @@ The DWIM behaviour of this command is as follows:
 
   ;; Global
   (global-org-modern-mode))
+#+end_src
 
+* Terminal setup
+** Vterm
+#+begin_src emacs-lisp
 (use-package vterm
   :config
   (setq shell-file-name "/bin/zsh"
@@ -273,13 +372,19 @@ The DWIM behaviour of this command is as follows:
                   ;;(dedicated . t) ;dedicated is supported in emacs27
                   (reusable-frames . visible)
                   (window-height . 0.3))))
+#+end_src
 
+** Magit
+#+begin_src emacs-lisp
 (use-package magit
   :ensure t
   :commands (magit-status magit-get-current-branch)
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+#+end_src
 
+** Set up Odin-mode and OLS for programming
+#+begin_src emacs-lisp
 (load "~/ols/odin-mode.el")
 
 (with-eval-after-load 'lsp-mode
@@ -290,3 +395,4 @@ The DWIM behaviour of this command is as follows:
                     :major-modes '(odin-mode)
                     :server-id 'ols
                     :multi-root t)))
+#+end_src

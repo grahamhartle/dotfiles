@@ -14,6 +14,7 @@
 
 ;; Load themes early to avoid flickering during startup (you need a built-in theme, though)
 ;;(load-theme 'modus-vivendi t)
+;;(load-theme 'wombat t)
 
 ;; tweak native compilation settings
 (setq native-comp-speed 2)
