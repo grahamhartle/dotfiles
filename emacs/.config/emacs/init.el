@@ -25,9 +25,11 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+(load-theme 'wombat t)
+
 ;; Fonts
-(let ((mono-spaced-font "JetBrainsMono Nerd Font")
-      (proportionately-spaced-font "Gill Sans"))
+(let ((mono-spaced-font "FiraCode Nerd Font")
+      (proportionately-spaced-font "Helvetica"))
   (set-face-attribute 'default nil :family mono-spaced-font :height 160)
   (set-face-attribute 'fixed-pitch nil :family mono-spaced-font :height 1.0)
   (set-face-attribute 'variable-pitch nil :family proportionately-spaced-font :height 1.2))
@@ -54,11 +56,17 @@
 (require 'use-package)
 
 (add-to-list 'display-buffer-alist
-	     '("\\`\\*\\(Warnings\\|Compile-Log\\)\\*\\'"
+	     '("\\'\\*\\(Warnings\\|Compile-Log\\)\\*\\'"
 	       (display-buffer-no-window)
 	       (allow-no-window . t)))
 
 ;; Packages
+;;(use-package catppuccin-theme
+;;  :ensure t
+;;  :config
+;;  (setq catppuccin-flavor 'mocha)
+;;  (load-theme 'catppuccin t))
+
 (use-package delsel
   :ensure nil
   :hook (after-init . delete-selection-mode))
