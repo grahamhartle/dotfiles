@@ -18,3 +18,6 @@
 
 ;; tweak native compilation settings
 (setq native-comp-speed 2)
+
+;; remove backup files
+(setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
