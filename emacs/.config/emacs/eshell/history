@@ -33,3 +33,6 @@ clear
 ls dotfiles
 exit
 exit
+ls -a
+clear
+exit

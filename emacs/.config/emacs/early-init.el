@@ -12,6 +12,8 @@
 
 (setq inhibit-startup-screen t)
 
+(setq mac-command-modifier 'meta)
+
 ;; Load themes early to avoid flickering during startup (you need a built-in theme, though)
 ;;(load-theme 'modus-vivendi t)
 ;;(load-theme 'wombat t)

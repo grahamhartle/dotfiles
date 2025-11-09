@@ -8,10 +8,13 @@
    '("f9d423fcd4581f368b08c720f04d206ee80b37bfb314fa37e279f554b6f415e9"
      default))
  '(package-selected-packages
-   '(catppuccin-theme corfu dired-subtree doom-modeline magit marginalia
-		      nerd-icons-completion nerd-icons-corfu
-		      nerd-icons-dired orderless org-modern toc-org
-		      trashed vertico vterm-toggle)))
+   '(catppuccin-theme corfu dictionary dired-subtree doom-modeline
+		      editorconfig eglot eldoc erc faceup magit
+		      marginalia nerd-icons-completion
+		      nerd-icons-corfu nerd-icons-dired orderless
+		      org-modern python toc-org track-changes tramp
+		      transient trashed vertico vterm-toggle wallpaper
+		      which-key window-tool-bar)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
