@@ -32,7 +32,73 @@ ls -a
 clear
 ls dotfiles
 exit
+ls -a
+clear
+exit
+alias clear '(eshell-clear-buffer)'clear
+clear
+cd
+clear
+quit
 exit
 ls -a
+clear
+alias clear '(eshell-clear-buffer)'
+clear
+exit
+ls -a
+clear
+ls -a
+exit
+clear
+exit
+clear
+exit
+ls -a
+clear
+exit
+clear
+exit
+cd
+clear
+clear-scrollback
+clear
+clear-scrollback
+ls -a
+clear-scrollback
+exit
+alias clear '(clear-scrollback)'
+clear
+alias clear '(clear-scrollback)'
+clear
+alias clear '(eshell-clear-scrollback)'
+clear
+eshell
+clear
+clear-scrollback
+alias clear 'clear-scrollback'
+clear
+exit
+clear
+ls -a
+cd .config
+ls -a
+clear
+exit
+ls -al
+ls -lGa
+ls -lGah
+ls -lGad
+ls -lGaf
+ls -alg
+ls -al
+ls -aHl
+clear
+cd
+exit
+ls -alh
+ls -al
+ls -a
+ls -al
 clear
 exit
