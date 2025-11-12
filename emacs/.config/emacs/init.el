@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t;-*-
+;; init.el - My init file -*- lexical-binding: t -*-
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)
 
@@ -32,7 +32,7 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
 			 ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
@@ -111,6 +111,7 @@ The DWIM behaviour of this command is as follows:
 (use-package vertico
   :ensure t
   :hook (after-init . vertico-mode))
+  (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
 
 (use-package marginalia
   :ensure t
@@ -230,44 +231,6 @@ The DWIM behaviour of this command is as follows:
   ;; (keymap-set consult-narrow-map (concat consult-narrow-key " ?") #'consult-narrow-help)
 )
 
-(use-package cape
-  ;; Bind prefix keymap providing all Cape commands under a mnemonic key.
-  ;; Press C-c p ? to for help.
-  :bind ("C-c p" . cape-prefix-map) ;; Alternative key: M-<tab>, M-p, M-+
-  ;; Alternatively bind Cape commands individually.
-  ;; :bind (("C-c p d" . cape-dabbrev)
-  ;;        ("C-c p h" . cape-history)
-  ;;        ("C-c p f" . cape-file)
-  ;;        ...)
-  :init
-  ;; Add to the global default value of `completion-at-point-functions' which is
-  ;; used by `completion-at-point'.  The order of the functions matters, the
-  ;; first function returning a result wins.  Note that the list of buffer-local
-  ;; completion functions takes precedence over the global list.
-  (add-hook 'completion-at-point-functions #'cape-dabbrev)
-  (add-hook 'completion-at-point-functions #'cape-file)
-  (add-hook 'completion-at-point-functions #'cape-elisp-block)
-  ;; (add-hook 'completion-at-point-functions #'cape-history)
-  ;; ...
-)
-
-(use-package corfu
-  :ensure t
-  :hook (after-init . global-corfu-mode)
-  :bind (:map corfu-map ("<tab>" . corfu-complete))
-  :config
-  (setq tab-always-indent 'complete)
-  (setq corfu-preview-current nil)
-  (setq corfu-min-width 20)
-
-  (setq corfu-popupinfo-delay '(1.25 . 0.5))
-  (corfu-popupinfo-mode 1) ; shows documentation after `corfu-popupinfo-delay'
-
-  ;; Sort by input history (no need to modify `corfu-sort-function').
-  (with-eval-after-load 'savehist
-    (corfu-history-mode 1)
-    (add-to-list 'savehist-additional-variables 'corfu-history)))
-
 (use-package embark
   :ensure t
 
@@ -345,6 +308,17 @@ The DWIM behaviour of this command is as follows:
   :ensure t
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 25)))
+
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-reload-all)
+  (add-hook 'prog-mode-hook #'yas-minor-mode)
+  (add-hook 'org-mode-hook #'yas-minor-mode)
+  (add-hook 'markdown-mode-hook #'yas-minor-mode))
+
+(use-package yasnippet-snippets
+  :ensure t)
 
 (setq org-directory "~/Documents/org")
 
