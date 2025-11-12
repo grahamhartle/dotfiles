@@ -13,6 +13,7 @@
 (add-to-list 'default-frame-alist '(alpha . (85 . 85)))
 
 (dolist (mode '(org-mode-hook
+		pdf-mode-hook
 		vterm-mode-hook
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
@@ -414,6 +415,21 @@ The DWIM behaviour of this command is as follows:
 
   ;; Global
   (global-org-modern-mode))
+
+(use-package auctex
+  :ensure t
+  :init
+ 	(with-eval-after-load 'info
+ 	  (add-to-list 'Info-additional-directory-list
+ 		       "~/Documents/auctex")))
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
+(use-package auctex-latexmk)
+
+(use-package pdf-tools
+  :init (pdf-tools-install))
 
 (use-package eshell-syntax-highlighting
   :after esh-mode

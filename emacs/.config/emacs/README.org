@@ -29,6 +29,8 @@
   - [[#toc-org][Toc-org]]
   - [[#settings][Settings]]
   - [[#org-modern][Org-Modern]]
+  - [[#auctex][Auctex]]
+  - [[#pdf-tools][PDF-Tools]]
 - [[#terminal-setup][Terminal setup]]
   - [[#eshell][Eshell]]
   - [[#vterm][Vterm]]
@@ -44,22 +46,23 @@
 
 * Set up the basic defaults for Emacs
 #+begin_src emacs-lisp
-(setq user-full-name "Graham Hartle"
-      user-mail-address "graham@grahamhartle.com")
+  (setq user-full-name "Graham Hartle"
+        user-mail-address "graham@grahamhartle.com")
 
-(set-fringe-mode 10)
-(column-number-mode)
-(global-display-line-numbers-mode t)
+  (set-fringe-mode 10)
+  (column-number-mode)
+  (global-display-line-numbers-mode t)
 
-(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
-(add-to-list 'default-frame-alist '(alpha . (85 . 85)))
+  (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+  (add-to-list 'default-frame-alist '(alpha . (85 . 85)))
 
-(dolist (mode '(org-mode-hook
-		vterm-mode-hook
-		eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+  (dolist (mode '(org-mode-hook
+  		pdf-mode-hook
+  		vterm-mode-hook
+  		eshell-mode-hook))
+    (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 #+end_src
 
 * Fonts
@@ -521,6 +524,27 @@ The DWIM behaviour of this command is as follows:
 
   ;; Global
   (global-org-modern-mode))
+#+end_src
+
+** Auctex
+#+begin_src emacs-lisp
+  (use-package auctex
+    :ensure t
+    :init
+   	(with-eval-after-load 'info
+   	  (add-to-list 'Info-additional-directory-list
+   		       "~/Documents/auctex")))
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil)
+  
+  (use-package auctex-latexmk)
+#+end_src
+
+** PDF-Tools
+#+begin_src emacs-lisp
+  (use-package pdf-tools
+    :init (pdf-tools-install))
 #+end_src
 
 * Terminal setup

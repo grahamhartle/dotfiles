@@ -8,14 +8,14 @@
    '("f9d423fcd4581f368b08c720f04d206ee80b37bfb314fa37e279f554b6f415e9"
      default))
  '(package-selected-packages
-   '(cape capf-autosuggest catppuccin-theme corfu dictionary
-	  dired-subtree doom-modeline editorconfig eglot
-	  embark-consult erc eshell-prompt-extras
-	  eshell-syntax-highlighting faceup magit marginalia
-	  nerd-icons-completion nerd-icons-corfu nerd-icons-dired
-	  orderless org-modern python toc-org track-changes tramp
-	  trashed vertico vterm-toggle wallpaper which-key
-	  window-tool-bar)))
+   '(auctex auctex-latexmk cape capf-autosuggest catppuccin-theme corfu
+	    dictionary dired-subtree doom-modeline editorconfig eglot
+	    embark-consult erc eshell-prompt-extras
+	    eshell-syntax-highlighting faceup magit marginalia
+	    nerd-icons-completion nerd-icons-corfu nerd-icons-dired
+	    orderless org-modern pdf-tools python toc-org
+	    track-changes tramp trashed vertico vterm-toggle wallpaper
+	    which-key window-tool-bar)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

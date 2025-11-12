@@ -102,3 +102,8 @@ ls -a
 ls -al
 clear
 exit
+ls
+ls -al
+dired
+clear
+exit
