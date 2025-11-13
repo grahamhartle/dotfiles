@@ -9,14 +9,13 @@
      default))
  '(package-selected-packages
    '(auctex-latexmk catppuccin-theme dictionary dired-subtree
-		    doom-modeline editorconfig eglot embark-consult
-		    erc eshell-prompt-extras
-		    eshell-syntax-highlighting faceup magit marginalia
-		    nerd-icons-completion nerd-icons-corfu
-		    nerd-icons-dired orderless org-modern pdf-tools
-		    python toc-org track-changes tramp trashed vertico
-		    vterm-toggle wallpaper which-key window-tool-bar
-		    yasnippet-snippets)))
+		    doom-modeline embark-consult erc
+		    eshell-prompt-extras eshell-syntax-highlighting
+		    faceup magit marginalia nerd-icons-completion
+		    nerd-icons-corfu nerd-icons-dired orderless
+		    org-modern pdf-tools toc-org track-changes
+		    transient trashed vertico vterm-toggle wallpaper
+		    which-key window-tool-bar yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

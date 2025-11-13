@@ -1,0 +1,7 @@
+eln-cache/
+elpa/
+auto-save-list/
+image-dired/
+.DS_Store
+.zsh_history
+.zsh_sessions/
