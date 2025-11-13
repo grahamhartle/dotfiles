@@ -1,4 +1,4 @@
-;; early-init file -*- lexical-binding: t -*-
+;; early-init.el --- Early Init File -*- lexical-binding: t -*-
 
 ;; Temporarily increase GC threshold during startup
 (setq gc-cons-threshold most-positive-fixnum)
